@@ -1,11 +1,34 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from 'react';
+import Header from '@/components/Header';
+import PetitionPanel from '@/components/PetitionPanel';
+import ChatPanel from '@/components/ChatPanel';
+import FileUpload from '@/components/FileUpload';
 
 const Index = () => {
+  const [petitionContent, setPetitionContent] = useState('');
+  const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
+
+  const handlePetitionGenerated = (content: string) => {
+    setPetitionContent(content);
+  };
+
+  const handleFilesUploaded = (files: File[]) => {
+    setUploadedFiles(prev => [...prev, ...files]);
+    // In a real app, you would process these files with OCR
+    console.log('Files uploaded:', files);
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <div className="min-h-screen bg-background text-foreground">
+      <Header />
+      
+      <div className="flex h-[calc(100vh-80px)]">
+        <div className="flex-1 flex flex-col">
+          <PetitionPanel petitionContent={petitionContent} />
+          <FileUpload onFilesUploaded={handleFilesUploaded} />
+        </div>
+        
+        <ChatPanel onPetitionGenerated={handlePetitionGenerated} />
       </div>
     </div>
   );

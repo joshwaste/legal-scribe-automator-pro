@@ -52,6 +52,15 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				legal: {
+					gold: 'hsl(var(--legal-gold))',
+					'gold-bright': 'hsl(var(--legal-gold-bright))',
+					dark: 'hsl(var(--legal-dark))',
+					card: 'hsl(var(--legal-card))',
+					border: 'hsl(var(--legal-border))',
+					'text-primary': 'hsl(var(--legal-text-primary))',
+					'text-muted': 'hsl(var(--legal-text-muted))'
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -62,6 +71,14 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				}
+			},
+			backgroundImage: {
+				'gradient-legal': 'var(--gradient-legal)',
+				'gradient-card': 'var(--gradient-card)'
+			},
+			boxShadow: {
+				'legal': 'var(--shadow-legal)',
+				'glow': 'var(--shadow-glow)'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
